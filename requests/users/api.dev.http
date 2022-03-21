@@ -1,0 +1,21 @@
+@url = http://localhost:3977/api/v1
+@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImVtYWlsIjoiaWRldmtpbmdvc0BnbWFpbC5jb20iLCJpYXQiOjE2NDc4Njc0NjYsImV4cCI6MTY0Nzg3ODI2Nn0.RFGqj07KXb-74xg8GIyPJW-aYH7hoFVYG9QorbyGac8
+
+### Signup
+POST {{url}}/signup
+Content-Type: application/json
+
+{
+  "name": "Joaquin",
+  "lastname": "Valdes",
+  "email": "joaquin@gmail.com",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "roles": ["ADMIN"],
+  "agreement": true
+}
+### List of users
+
+GET {{url}}/users
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
