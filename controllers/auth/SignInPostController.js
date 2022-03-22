@@ -22,9 +22,10 @@ const signIn = (req, res) => {
           .send({ ok: false, message: "Error del servidor" });
       }
       if (!userValid) {
-        return res
-          .status(404)
-          .send({ ok: false, message: "Credenciales incorrectas" });
+        return res.status(404).send({
+          ok: false,
+          message: "Credenciales incorrectas",
+        });
       }
       if (!userStored.active) {
         return res
