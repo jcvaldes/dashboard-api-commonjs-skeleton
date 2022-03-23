@@ -1,7 +1,9 @@
 const User = require("../../models/user");
 
 const getUsers = (req, res) => {
-  User.find({}, (err, users) => {
+  let { active = true } = req.query;
+  active = JSON.parse(active);
+  User.find({ active }, (err, users) => {
     if (err) {
       return res.status(500).send({ message: "Error interno de servidor." });
     }
