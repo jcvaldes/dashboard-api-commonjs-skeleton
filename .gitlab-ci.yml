@@ -15,11 +15,11 @@ Install Dependencies:
     paths:
       - node_modules
 
-Execute Tests:
-  image: node:alpine3.15
-  stage: test
-  script:
-    - npm run test
+# Execute Tests:
+#   image: node:alpine3.15
+#   stage: test
+#   script:
+#     - npm run test
 
 Deliver app (Pre production):
   image: ruby:2.3-slim
