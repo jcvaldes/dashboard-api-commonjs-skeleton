@@ -44,5 +44,6 @@ Deliver app (Production):
     - apt-get update -qy
     - apt-get install -y make gcc curl git
   script:
+    - env
     - gem install dpl --pre
     - dpl --provider=heroku api --app=fecit-api-staging --api_key=$HEROKU_API_KEY
