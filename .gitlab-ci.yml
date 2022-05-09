@@ -31,6 +31,8 @@ Deliver app (Pre production):
   script:
     - gem install dpl
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api_key=$HEROKU_API_KEY
+  after_script:
+    - curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=$HEROKU_API_KEY NEW_RELIC_ACCOUNT_ID=${NEW_RELIC_ACCOUNT_ID} /usr/local/bin/newrelic install -n logs-integration
 
 Deliver app (Production):
   image: ruby:2.3-slim
