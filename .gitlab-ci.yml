@@ -4,8 +4,11 @@ stages:
   - deploy
 
 Install Dependencies:
-  image: nginx:stable
+  image: node:alpine3.15
   stage: build
+  before_script:
+    - apt-get update
+    - apt-get upgrade
   script:
     - npm install
   artifacts:
