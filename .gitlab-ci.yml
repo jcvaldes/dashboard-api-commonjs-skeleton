@@ -14,7 +14,7 @@ Install Dependencies:
 
 Execute Tests:
   image: node:alpine3.15
-  state: test
+  stage: test
   script:
     - npm run test
 
@@ -24,7 +24,7 @@ Deliver app (Pre production):
   only:
     refs:
       - staging
-  before_scripts:
+  before_script:
     - apt-get update -qy
     - apt-get install -y make gcc curl git
   script:
@@ -37,7 +37,7 @@ Deliver app (Production):
   only:
     refs:
       - master
-  before_scripts:
+  before_script:
     - apt-get update -qy
     - apt-get install -y make gcc curl git
   script:
