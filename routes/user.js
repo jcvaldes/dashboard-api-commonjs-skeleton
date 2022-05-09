@@ -1,10 +1,21 @@
-const express = require("express");
-const SignUpPostController = require("../controllers/users/SignUpPostController");
-const UsersGetController = require("../controllers/users/UsersGetController");
-const { ensureAuth } = require("../middlewares/ensureAuth");
+const express = require('express')
+const multipart = require('connect-multiparty')
+const SignUpPostController = require('../controllers/users/SignUpPostController')
+const UsersGetController = require('../controllers/users/UsersGetController')
+const UserPutController = require('../controllers/users/UserPutController')
+const UploadAvatarPutController = require('../controllers/shared/UploadPutController')
 
-const router = express.Router();
-router.post("/signup", SignUpPostController.signUp);
-router.get("/users", [ensureAuth], UsersGetController.getUsers);
+const { ensureAuth } = require('../middlewares/ensureAuth')
+const uploadAvatar = multipart({ uploadDir: './uploads/avatar' })
 
-module.exports = router;
+const router = express.Router()
+router.post('/signup', SignUpPostController.signUp)
+router.get('/users', [ensureAuth], UsersGetController.getUsers)
+router.put('/users/:id', [ensureAuth], UserPutController.putUser)
+router.put(
+  '/upload/avatar/:id',
+  [ensureAuth, uploadAvatar],
+  UploadAvatarPutController.upload
+)
+
+module.exports = router
