@@ -22,6 +22,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "npx nodemon index.js"
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
   }
 }
