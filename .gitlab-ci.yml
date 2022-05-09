@@ -7,8 +7,8 @@ Install Dependencies:
   image: node:alpine3.15
   stage: build
   before_script:
-    - apt-get update
-    - apt-get upgrade
+    - apk update
+    - apk upgrade
   script:
     - npm install
   artifacts:
