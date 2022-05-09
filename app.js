@@ -1,10 +1,11 @@
 const morgan = require('morgan')
 const express = require('express')
 const cors = require('cors')
-
+const pino = require('pino-http')
 const app = express()
 
 app.use(morgan('dev'))
+app.use(pino())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ limit: '5mb' }))
 app.use(
