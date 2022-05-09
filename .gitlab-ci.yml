@@ -32,7 +32,7 @@ Deliver app (Pre production):
     - apt-get install -y make gcc curl git
   script:
     - gem install dpl --pre
-    - dpl --provider=heroku api --app=fecit-api-staging --api_key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=fecit-api-staging --api_key=$HEROKU_API_KEY
 
 Deliver app (Production):
   image: ruby:2.3-slim
@@ -44,6 +44,6 @@ Deliver app (Production):
     - apt-get update -qy
     - apt-get install -y make gcc curl git
   script:
-    - gem install dpl --pre
+    - gem install dpl
     - env
-    - dpl --provider=heroku api --app=fecit-api-staging --api_key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=fecit-api-staging --api_key=$HEROKU_API_KEY
