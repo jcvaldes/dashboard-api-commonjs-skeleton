@@ -43,7 +43,7 @@ Deliver app (Production):
   before_script:
     - apt-get update -qy
     - apt-get install -y make gcc curl git
+    - echo "insecure" >> ~/.curlrc
   script:
     - gem install dpl
-    - env
     - dpl --provider=heroku --app=fecit-api-staging --api_key=$HEROKU_API_KEY
