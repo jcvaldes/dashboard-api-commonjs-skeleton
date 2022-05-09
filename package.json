@@ -23,7 +23,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "NEW_RELIC_ENABLED=false node index.js",
-    "dev": "NEW_RELIC_ENABLED=false npx nodemon index.js"
+    "start": "NEW_RELIC_ENABLED=true node index.js",
+    "dev": "NEW_RELIC_ENABLED=true npx nodemon index.js"
   }
 }
