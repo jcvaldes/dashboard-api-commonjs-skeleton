@@ -20,7 +20,7 @@ Execute Tests:
 
 Deliver app (Pre production):
   image: ruby:2.3-slim
-  stage: deloy
+  stage: deploy
   only:
     refs:
       - staging
@@ -33,10 +33,10 @@ Deliver app (Pre production):
 
 Deliver app (Production):
   image: ruby:2.3-slim
-  stage: deloy
+  stage: deploy
   only:
     refs:
-      - master
+      - main
   before_script:
     - apt-get update -qy
     - apt-get install -y make gcc curl git
