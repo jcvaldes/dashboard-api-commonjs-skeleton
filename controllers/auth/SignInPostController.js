@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('../../services/jwt')
 const User = require('../../models/user')
 
-const signIn = (req, res) => {
+const signIn = async (req, res) => {
   const { email, password } = req.body
 
   User.findOne({ email }, (err, userStored) => {
@@ -11,7 +11,7 @@ const signIn = (req, res) => {
     }
     if (!userStored) {
       return res
-        .status(404)
+        .status(400)
         .send({ ok: false, message: 'Credenciales inválidas' })
     }
     bcrypt.compare(password, userStored.password, (err, userValid) => {
@@ -21,17 +21,17 @@ const signIn = (req, res) => {
           .send({ ok: false, message: 'Error del servidor' })
       }
       if (!userValid) {
-        return res.status(404).send({
+        return res.status(400).send({
           ok: false,
           message: 'Credenciales incorrectas',
         })
       }
       if (!userStored.active) {
         return res
-          .status(200)
+          .status(400)
           .send({ ok: false, message: 'Usuario no se ha activado' })
       }
-      req.log.info(userStored)
+
       return res.status(200).send({
         ok: true,
         accessToken: jwt.createAccessToken(userStored),

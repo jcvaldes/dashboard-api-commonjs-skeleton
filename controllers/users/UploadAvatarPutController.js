@@ -42,7 +42,7 @@ const upload = (req, res) => {
               } else {
                 if (!userUpdated) {
                   res
-                    .status(404)
+                    .status(400)
                     .send({ message: 'No se han encontrado ningún usuario.' })
                 }
                 res.status(200).send({ message: 'Usuario actualizado' })

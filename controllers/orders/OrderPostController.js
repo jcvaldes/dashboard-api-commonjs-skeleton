@@ -2,13 +2,13 @@ const User = require('../../models/user')
 
 const signUp = (req, res) => {
   const user = new User()
-  const { name, lastname, email, password, confirmPassword, roles, agreement } =
+  const { name, lastname, email, password, confirmPassword, role, agreement } =
     req.body
   user.name = name
   user.lastname = lastname
   user.email = email
   user.password = password
-  user.roles = roles
+  user.role = role
   user.agreement = agreement
   user.active = true
   if (!password || !confirmPassword) {

@@ -11,7 +11,7 @@ Content-Type: application/json
   "email": "idevkingos@gmail.com",
   "password": "123456",
   "confirmPassword": "123456",
-  "roles": ["ADMIN"],
+  "role": ["ADMIN"],
   "agreement": true
 }
 ### Update user

@@ -2,13 +2,13 @@ const User = require('../../models/user')
 
 const signUp = (req, res) => {
   const user = new User()
-  const { name, lastname, email, password, confirmPassword, roles, agreement } =
+  const { name, lastname, email, password, confirmPassword, agreement } =
     req.body
   user.name = name
   user.lastname = lastname
   user.email = email
   user.password = password
-  user.roles = roles
+  user.role = 'CUSTOMER'
   user.agreement = agreement
   user.active = true
   if (!password || !confirmPassword) {
@@ -16,15 +16,16 @@ const signUp = (req, res) => {
   }
   user.save((err, userStored) => {
     if (err) {
-      res.status(500).send({ ok: false, message: 'El usuario ya existe.' })
+      return res
+        .status(400)
+        .send({ ok: false, message: 'El usuario ya existe.' })
     } else {
       if (!userStored) {
-        res
+        return res
           .status(404)
           .send({ ok: false, message: 'Error al crear el usuario.' })
       } else {
-        req.log.info('User created: ', req.body)
-        res.status(200).send({ ok: true, message: 'Usuario creado' })
+        return res.status(200).send({ ok: true, message: 'Usuario creado' })
       }
     }
   })

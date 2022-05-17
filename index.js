@@ -1,5 +1,5 @@
 require('dotenv').config()
-require('newrelic')
+
 const mongoose = require('mongoose')
 const app = require('./app')
 const server = require('http').createServer(app)

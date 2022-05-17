@@ -8,7 +8,7 @@ const putUser = (req, res) => {
       res.status(500).send({ message: 'Error interno de servidor.' })
     }
     if (!user) {
-      res.status(404).send({ message: 'No se ha encontrado ningún usuario.' })
+      res.status(400).send({ message: 'No se ha encontrado ningún usuario.' })
     }
     res.status(200).send({ message: 'Usuario actualizado correctamente.' })
   })

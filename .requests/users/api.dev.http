@@ -1,17 +1,17 @@
 @url = http://localhost:3977/api/v1
-@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImVtYWlsIjoiaWRldmtpbmdvc0BnbWFpbC5jb20iLCJpYXQiOjE2NTA0NjgwMzgsImV4cCI6MTY1MDQ3ODgzOH0.GX0LlILLlDiUaCNyv1KFyvjh9evVe_OpUUl-V7UUszA
+@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImVtYWlsIjoiaWRldmtpbmdvc0BnbWFpbC5jb20iLCJpYXQiOjE2NTIzOTc1MjEsImV4cCI6MTY1MjQwODMyMX0.1jydFTEzsmcFMLDFuM0b_dKCqG3XKIYT5P8vpfclx1Q
 
 ### Signup
 POST {{url}}/signup
 Content-Type: application/json
 
 {
-  "name": "Joaquin",
+  "name": "Juan Carlos",
   "lastname": "Valdes",
-  "email": "joaquin@gmail.com",
+  "email": "idevkingos@gmail.com",
   "password": "123456",
   "confirmPassword": "123456",
-  "roles": ["ADMIN"],
+  "role": "ADMIN",
   "agreement": true
 }
 ### Update user
@@ -45,3 +45,7 @@ Content-Type: image/jpg
 
 < ./javascript.jpg
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+GET {{url}}/upload/avatar/622fd208719b54638a69d5c5
+Authorization: Bearer {{accessToken}}
