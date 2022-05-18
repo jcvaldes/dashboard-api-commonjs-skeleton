@@ -11,8 +11,8 @@ const getImage = (req, res) => {
     }
     if (!userStored) {
       return res
-        .status(404)
-        .send({ ok: false, message: 'Usuario no inexistente' })
+        .status(400)
+        .send({ ok: false, message: 'Usuario no encontrado' })
     }
     const pathImage = path.resolve(
       `public/uploads/${type}/${userStored.avatar}`
