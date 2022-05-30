@@ -4,7 +4,7 @@ const SALT_WORK_FACTOR = 10
 const Schema = mongoose.Schema
 
 const validRoles = {
-  values: ['ADMIN', 'CUSTOMER'],
+  values: ['ADMIN', 'CUSTOMER', 'EDITOR', 'REVIEWER'],
   message: '{VALUE} no es un rol permitido',
 }
 const userSchema = Schema(
@@ -54,6 +54,23 @@ userSchema.pre('save', function (next) {
       user.password = hash
       next()
     })
+  })
+})
+
+userSchema.pre('findOneAndUpdate', function (next) {
+  const user = this
+
+  // only hash the password if it has been modified (or is new)
+  if (!this._update.password) {
+    delete this._update.password
+    return next()
+  }
+
+  // generate a salt
+  bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
+    if (err) return next(err)
+    this._update.password = bcrypt.hashSync(this._update.password, 10)
+    next()
   })
 })
 

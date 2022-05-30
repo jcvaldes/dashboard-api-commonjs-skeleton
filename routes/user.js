@@ -3,6 +3,7 @@ const multipart = require('connect-multiparty')
 const SignUpPostController = require('../controllers/users/SignUpPostController')
 const UsersGetController = require('../controllers/users/UsersGetController')
 const UserPutController = require('../controllers/users/UserPutController')
+const UserDeleteController = require('../controllers/users/UserDeleteController')
 const UploadAvatarPutController = require('../controllers/users/UploadAvatarPutController')
 
 const { ensureAuth } = require('../middlewares/ensureAuth')
@@ -17,5 +18,5 @@ router.put(
   [ensureAuth, uploadAvatar],
   UploadAvatarPutController.upload
 )
-
+router.delete('/users/:id', [ensureAuth], UserDeleteController.deleteUser)
 module.exports = router

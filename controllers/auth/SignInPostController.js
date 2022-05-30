@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const jwt = require('../../services/jwt')
 const User = require('../../models/user')
+const logger = require('../../utils/logger')
 
 const signIn = async (req, res) => {
   const { email, password } = req.body
@@ -31,7 +32,10 @@ const signIn = async (req, res) => {
           .status(400)
           .send({ ok: false, message: 'Usuario no se ha activado' })
       }
-
+      logger.log({
+        level: 'info',
+        message: 'USER_LOGGED',
+      })
       return res.status(200).send({
         ok: true,
         accessToken: jwt.createAccessToken(userStored),

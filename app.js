@@ -1,16 +1,16 @@
 const morgan = require('morgan')
 const express = require('express')
 const cors = require('cors')
+const fileuUpload = require('express-fileupload')
 const path = require('path')
+
 const app = express()
-app.use(morgan('dev'))
-
+// app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
-
-app.use(express.urlencoded({ extended: false }))
+app.use(fileuUpload())
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json({ limit: '5mb' }))
-process.env.CLIENT_URL
-console.log('TCL: process.env.CLIENT_URL', process.env.CLIENT_URL)
+
 app.use(
   cors({
     origin: [process.env.CLIENT_URL],
@@ -22,7 +22,7 @@ const API_VERSION = process.env.API_VERSION || 'v1'
 const userRoutes = require('./routes/user')
 const authRoutes = require('./routes/auth')
 const imageRoutes = require('./routes/image')
-
+const menuRoutes = require('./routes/menu')
 // Configure Header HTTP
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', process.env.CLIENT_URL)
@@ -41,5 +41,5 @@ const imageRoutes = require('./routes/image')
 app.use(`/api/${API_VERSION}`, authRoutes)
 app.use(`/api/${API_VERSION}`, userRoutes)
 app.use(`/api/${API_VERSION}`, imageRoutes)
-
+app.use(`/api/${API_VERSION}`, menuRoutes)
 module.exports = app
