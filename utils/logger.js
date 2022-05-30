@@ -19,7 +19,7 @@ const options = {
     }),
     new winston.transports.File({
       filename: 'logs/warning.log',
-      level: 'error',
+      level: 'warn',
       maxsize: 5242880,
     }),
     new winston.transports.File({
