@@ -1,0 +1,17 @@
+@url = http://localhost:3977/api/v1
+@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyOGI5YjA2NmRiNWRjYTRkOGQ0MmVlMSIsIm5hbWUiOiJKdWFuMiBDYXJsb3MyIiwibGFzdG5hbWUiOiJWYWxkZXMiLCJlbWFpbCI6ImlkZXZraW5nb3NAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUzNTg1MDY5LCJleHAiOjE2NTM1OTU4Njl9.uQLbI-nVfEI_oKcWZsc3PlWVIVb3w2cQgqJTIVaxjOQ
+
+### List Menu items
+GET {{url}}/menu
+
+### Post Menu item
+POST {{url}}/menu
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "title": "Contacto",
+  "url": "local.com/contact",
+  "order": 1
+}
+

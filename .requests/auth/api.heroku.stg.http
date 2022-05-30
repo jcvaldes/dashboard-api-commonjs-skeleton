@@ -1,6 +1,6 @@
-@url = http://localhost:3977/api/v1
-@accessToken = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImVtYWlsIjoiaWRldmtpbmdvc0BnbWFpbC5jb20iLCJpYXQiOjE2NDc4Njc0NjYsImV4cCI6MTY0Nzg3ODI2Nn0.RFGqj07KXb-74xg8GIyPJW-aYH7hoFVYG9QorbyGac8
- 
+@url = https://fecit-api-staging.herokuapp.com/api/v1
+@accessToken = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImVtYWlsIjoiaWRldmtpbmdvc0BnbWFpbC5jb20iLCJpYXQiOjE2NTAxNDA5OTksImV4cCI6MTY1MDE1MTc5OX0.onsvjL_D16nfaiCWaNUTo9rFT3SSpEE3gKq12Wv9FkM
+
 ### SignIn
 POST {{url}}/signin
 Content-Type: application/json

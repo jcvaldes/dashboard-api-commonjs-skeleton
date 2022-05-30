@@ -1,0 +1,20 @@
+@url = http://localhost:3977/api/v1
+@accessToken = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImVtYWlsIjoiaWRldmtpbmdvc0BnbWFpbC5jb20iLCJpYXQiOjE2NTAxNDA5OTksImV4cCI6MTY1MDE1MTc5OX0.onsvjL_D16nfaiCWaNUTo9rFT3SSpEE3gKq12Wv9FkM
+
+### SignIn
+POST {{url}}/signin
+Content-Type: application/json
+
+{
+  "email": "idevkingos@gmail.com",
+  "password": "123456"
+}
+
+### RefreshAccessToken
+POST {{url}}/refresh-access-token
+Content-Type: application/json
+Authorization: {{ accessToken }}
+
+{
+  "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyMmZkMjA4NzE5YjU0NjM4YTY5ZDVjNSIsImV4cCI6MTY1MDQ1OTQ2Nn0.wsAghVejT-USkQddXLuXBNZn6RdrISl_vLynimwdPgw"
+}

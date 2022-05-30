@@ -1,0 +1,46 @@
+stages:
+  # - build
+  # - test
+  - deploy
+
+# Install Dependencies:
+#   image: node:alpine3.15
+#   stage: build
+#   before_script:
+#     - apk update
+#     - apk upgrade
+#   script:
+#     - npm install
+#   artifacts:
+#     paths:
+#       - node_modules
+
+# Execute Tests:
+#   image: node:alpine3.15
+#   stage: test
+#   script:
+#     - npm run test
+
+Deliver app (Pre production):
+  image: ruby:latest
+  stage: deploy
+  only:
+    - staging
+  before_script:
+    - apt-get update -qy
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api_key=$HEROKU_API_KEY
+
+Deliver app (Production):
+  image: ruby:2.3-slim
+  stage: deploy
+  only:
+    refs:
+      - main
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y make gcc curl git
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api_key=$HEROKU_STAGING_API_KEY

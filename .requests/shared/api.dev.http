@@ -1,0 +1,7 @@
+@url = http://localhost:3977/api/v1
+@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyODI2NmU2MzY4OWMxZGJlNGE0YWRmOSIsIm5hbWUiOiJKdWFuIENhcmxvcyIsImxhc3RuYW1lIjoiVmFsZGVzIiwiZW1haWwiOiJpZGV2a2luZ29zQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1MjczODk2NCwiZXhwIjoxNjUyNzQ5NzY0fQ.H5UVlfqv93zxcuf8G3-6a0dn74cUH7AsM8smouFqIkI
+
+### Get Image
+GET {{url}}/image/avatar/628266e63689c1dbe4a4adf9
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
