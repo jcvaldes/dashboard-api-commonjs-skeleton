@@ -1,5 +1,5 @@
 @url = http://localhost:3977/api/v1
-@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyOGI5YjA2NmRiNWRjYTRkOGQ0MmVlMSIsIm5hbWUiOiJKdWFuMiBDYXJsb3MyIiwibGFzdG5hbWUiOiJWYWxkZXMiLCJlbWFpbCI6ImlkZXZraW5nb3NAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUzNTg1MDY5LCJleHAiOjE2NTM1OTU4Njl9.uQLbI-nVfEI_oKcWZsc3PlWVIVb3w2cQgqJTIVaxjOQ
+@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYyOGI5YjA2NmRiNWRjYTRkOGQ0MmVlMSIsIm5hbWUiOiJKdWFuMiBDYXJsb3MyIiwibGFzdG5hbWUiOiJWYWxkZXMiLCJlbWFpbCI6ImlkZXZraW5nb3NAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjU0NDY5NzAyLCJleHAiOjE2NTQ0ODA1MDJ9.-wu52WDFTXeCK6HPXkFD8Ip6R9joqf0qtlPMhDQrHlU
 
 ### List Menu items
 GET {{url}}/menu
@@ -10,8 +10,16 @@ Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
-  "title": "Contacto",
-  "url": "local.com/contact",
+  "title": "Cursos",
+  "url": "local.com/courses",
   "order": 1
 }
 
+### Update Menu item
+PUT {{url}}/menu/628fb5ef3e99471b2ad2a41c
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "order": 1
+}
