@@ -6,14 +6,18 @@ const updateMenu = (req, res) => {
 
   Menu.findByIdAndUpdate(params.id, menuData, (err, menuUpdated) => {
     if (err) {
-      return res.status(500).send({ message: 'Error interno de servidor.' })
+      return res
+        .status(500)
+        .send({ ok: false, message: 'Error interno de servidor.' })
     }
     if (!menuUpdated) {
       return res
         .status(400)
-        .send({ message: 'No se han encontrado ningún menú.' })
+        .send({ ok: false, message: 'No se han encontrado ningún menú.' })
     }
-    return res.status(200).send({ message: 'Menú actualizado correctamente.' })
+    return res
+      .status(200)
+      .send({ ok: true, message: 'Menú actualizado correctamente' })
   })
 }
 
