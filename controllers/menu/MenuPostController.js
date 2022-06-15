@@ -1,12 +1,12 @@
 const Menu = require('../../models/menu')
 
 const addMenu = (req, res) => {
-  const { title, url, order, active = true } = req.body
+  const { title, url } = req.body
   const menu = new Menu()
   menu.title = title
   menu.url = url
-  menu.order = order
-  menu.active = active
+  menu.order = 1000
+  menu.active = false
   menu.save((err, menuStored) => {
     if (err) {
       return res
